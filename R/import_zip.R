@@ -30,3 +30,34 @@ import_zip <- function(zip_file, location) {
   }
 
   }
+#' Import CSV Files
+#'
+#' Take a URL for a CSV file and import into Posit Workbench. It will create the location folder if not specified,
+#' otherwise will just save to the folder
+#' @param {zip_file} {A complete URL to the web-based csv file that ends in .csv}
+#' @param {location} {Specify the directory you want to install into.}
+import_csv <- function(csv_file, file_name, location) {
+
+  if(!endsWith(csv_file, ".csv")) {
+    return("Not a csv file Please check the file location")
+  }
+
+  if(!file.exists(location)) {
+
+    if(!endsWith(location, "/")) { #if doesn't end with a slash, add one
+      location <- paste0(location, "/")
+    }
+
+    dir.create(location)
+
+  }
+
+  name <- paste0(location, file_name, ".csv")
+
+
+  if(endsWith(csv_file, ".csv")) {
+    temp <- read.csv(csv_file) #read_csv
+    write.csv(temp, file = name)
+
+  }
+}
