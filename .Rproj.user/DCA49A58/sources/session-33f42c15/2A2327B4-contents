@@ -52,7 +52,11 @@ import_csv <- function(csv_file, file_name, location) {
 
   }
 
-  name <- paste0(location, file_name, ".csv")
+  if(!endsWith(file_name, ".csv")) {
+    file_name <- paste0(file_name, ".csv")
+  }
+
+  name <- paste0(location, file_name)
 
 
   if(endsWith(csv_file, ".csv")) {
