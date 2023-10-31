@@ -4,13 +4,14 @@
 \alias{import_zip}
 \title{Import Zip Files}
 \usage{
-import_zip(zip_file, name = "imported_data")
+import_zip(zip_file, location)
 }
 \arguments{
 \item{{zip_file}}{{A complete URL to the web-based zip folder that ends in .zip}}
 
-\item{{name}}{{Defaults to imported_data, but a string for the name of the folder being created}}
+\item{{location}}{{Specify the directory you want to install into.}}
 }
 \description{
-Take a URL for a zip folder and import into Posit Workbench
+Take a URL for a zip folder and import into Posit Workbench. It will create the location folder if not specified,
+otherwise will just save to the folder
 }
